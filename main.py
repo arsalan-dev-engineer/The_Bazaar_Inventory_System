@@ -3,6 +3,7 @@ import random
 
 bazaar_ms = PrettyTable()
 bazaar_ms = PrettyTable(["Item ID", "Item Name", "Cost (Per Unit)", "Item Quantity", "Total Cost"])
+#bazaar_ms.add_autoindex("Item Index")
 bazaar_ms_search = PrettyTable(["Item ID", "Item Name", "Cost (Per Unit)", "Item Quantity", "Total Cost"])
 
 print("\n----------Welcome to Bazaar----------\n")
@@ -27,15 +28,17 @@ def search_bazaar():
 
 def add_item():
     print()
-    item_name = input("Enter item name: ")
-    item_cost = float(input("Enter item cost (per unit): "))
-    item_quantity = int(input("Enter quantity: "))
-    total_cost = item_cost + item_quantity
-    gen = random.randint(0000000, 999999)
-    item_id = item_name[0:2].upper() + str(gen)
+    try:
+        item_name = input("Enter item name: ")
+        item_cost = float(input("Enter item cost (per unit): "))
+        item_quantity = int(input("Enter quantity: "))
+        total_cost = item_cost + item_quantity
+        gen = random.randint(0000000, 999999)
+        item_id = item_name[0:2].upper() + str(gen)
+        bazaar_ms.add_row([f"{item_id}", f"{item_name}", f"{item_cost:.2f}", f"{item_quantity}", f"{total_cost:.2f}"])
     
-    bazaar_ms.add_row([f"{item_id}", f"{item_name}", f"{item_cost:.2f}", f"{item_quantity}", f"{total_cost:.2f}"])
-    
+    except ValueError:
+        print("Incorrect Entry, returning to menu")
     
 def remove_item():
     pass
