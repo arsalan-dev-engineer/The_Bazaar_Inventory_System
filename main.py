@@ -3,7 +3,6 @@ import random
 
 bazaar_ms = PrettyTable()
 bazaar_ms = PrettyTable(["Item ID", "Item Name", "Cost (Per Unit)", "Item Quantity", "Total Cost"])
-#bazaar_ms.add_autoindex("Item Index")
 bazaar_ms_search = PrettyTable(["Item ID", "Item Name", "Cost (Per Unit)", "Item Quantity", "Total Cost"])
 
 print("\n----------Welcome to Bazaar----------\n")
@@ -36,7 +35,6 @@ def add_item():
     item_id = item_name[0:2].upper() + str(gen)
     
     bazaar_ms.add_row([f"{item_id}", f"{item_name}", f"{item_cost:.2f}", f"{item_quantity}", f"{total_cost:.2f}"])
-    # adds index numbers for each row
     
     
 def remove_item():
